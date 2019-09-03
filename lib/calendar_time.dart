@@ -39,7 +39,7 @@ class CalendarTime {
     return timeFormat.format(dateLocal);
   }
 
-  String format(String formatString){
+  String format(String formatString) {
     return DateFormat(formatString).format(dateLocal);
   }
 

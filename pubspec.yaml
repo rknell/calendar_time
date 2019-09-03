@@ -1,6 +1,6 @@
 name: calendar_time
 description: Implementation of MomentJS's calendar time
-version: 0.0.2
+version: 0.0.3
 author: Ryan Knell <rknell@snappyapps.com.au>
 homepage: https://github.com/rknell/calendar_time
 
@@ -11,4 +11,4 @@ dependencies:
   intl: ^0.15.7
 
 dev_dependencies:
-  test: ^1.0.0
+  test:
