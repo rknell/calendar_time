@@ -39,6 +39,10 @@ class CalendarTime {
     return timeFormat.format(dateLocal);
   }
 
+  String format(String formatString){
+    return DateFormat(formatString).format(dateLocal);
+  }
+
   String get toHumanMultiLine {
     return this.toHuman.split(" at ").join("\n");
   }

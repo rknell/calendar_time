@@ -29,27 +29,15 @@ Honestly just check the code, but it is in line with Moment's logic.
 
 You can also call `.toHumanMultiLine` that splits the output around at to have date and time on different lines.
 
-### formatTime
+### format
 
-Formats time to current timezone in hours and minutes 
-
-```dart
-import 'package:calendar_time/calendar_time.dart';
-
-main(){
-  CalendarTime(DateTime.now()).timeFormat; //Today at {current time}
-}
-```
-
-You can change the format this way:
+Formats to current timezone 
 
 ```dart
 import 'package:calendar_time/calendar_time.dart';
 
 main(){
-  final calendarTime = CalendarTime(DateTime.now());
-  calendarTime.timeFormat = DateFormat.jms(); //for hours minutes seconds
-  print(calendarTime.timeFormat); //Today at {current time}
+  CalendarTime(DateTime.now()).format("yyyy-MM-dd HH:mm");
 }
 ```
 
