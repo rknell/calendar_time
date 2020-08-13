@@ -11,4 +11,9 @@ void main() {
     final calendarTime = CalendarTime(DateTime(2010, 1, 1));
     expect(calendarTime.format('dd/MM/yy'), "01/01/10");
   });
+
+  test("it should generate a time from a string", () {
+    CalendarTime.fromString("4/4/20", "d/M/y");
+    CalendarTime.fromString("20/12/20", "d/M/y");
+  });
 }

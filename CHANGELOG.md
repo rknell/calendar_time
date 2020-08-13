@@ -1,3 +1,9 @@
+## [1.0.0] - 2020/08/13
+
+* Added .fromString factory to easily parse date time
+* Added a bunch of documentation
+* Moved to 1.0, no breaking changes but the package is pretty mature now and not super popular so now is the time to give it a bump.
+
 ## [0.0.3] - 2019/09/03
 
 * Another attempt at publishing
