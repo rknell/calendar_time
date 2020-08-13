@@ -307,7 +307,7 @@ class CalendarTime {
   ///  at
   /// 4:30pm
   String get toHumanMultiLine {
-    return this.toHuman.split(" at ").join("\n");
+    return toHuman.split(" at ").join("\n");
   }
 
   /// Boolean check to see if the current date is today
