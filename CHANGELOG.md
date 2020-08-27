@@ -1,3 +1,7 @@
+##v [1.0.1] - 2020/08/27
+
+* Added endOfDay and startOfDay getters
+
 ## [1.0.0] - 2020/08/13
 
 * Added .fromString factory to easily parse date time

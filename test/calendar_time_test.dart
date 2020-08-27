@@ -15,5 +15,6 @@ void main() {
   test("it should generate a time from a string", () {
     CalendarTime.fromString("4/4/20", "d/M/y");
     CalendarTime.fromString("20/12/20", "d/M/y");
+    CalendarTime.fromString("09/08/2020 4:20 PM", "dd/MM/yyyy h:mm a");
   });
 }

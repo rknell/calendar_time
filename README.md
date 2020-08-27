@@ -110,7 +110,7 @@ main(){
 
 ### startOfToday
 
-Return the beginning of today
+Return the beginning of today - not to be confused with `startOfDay`
 
 ```dart
 import 'package:calendar_time/calendar_time.dart';
@@ -118,6 +118,19 @@ import 'package:calendar_time/calendar_time.dart';
 main(){
   final calendarTime = CalendarTime(DateTime.now());
   calendarTime.startOfToday; // DateTime
+}
+```
+
+### startOfDay
+
+Return the beginning of the day of the CalendarTime obejct.
+
+```dart
+import 'package:calendar_time/calendar_time.dart';
+
+main(){
+  final calendarTime = CalendarTime(DateTime(2020,1,1));
+  calendarTime.startOfDay; // 2020/01/01 0:0:0am
 }
 ```
 
@@ -149,7 +162,7 @@ main(){
 
 ### endOfToday
 
-Return the end of today (23:59:59:999:999)
+Return the end of today (23:59:59:999:999) - not to be confused with endOfDay
 
 ```dart
 import 'package:calendar_time/calendar_time.dart';
@@ -157,6 +170,19 @@ import 'package:calendar_time/calendar_time.dart';
 main(){
   final calendarTime = CalendarTime(DateTime.now());
   calendarTime.endOfToday; // DateTime
+}
+```
+
+### endOfDay
+
+Return the end of the day of the CalendarTime object (23:59:59:999:999)
+
+```dart
+import 'package:calendar_time/calendar_time.dart';
+
+main(){
+  final calendarTime = CalendarTime(DateTime(2020, 1,1));
+  calendarTime.endOfToday; // 2020/01/01 23:59:59:999:999
 }
 ```
 

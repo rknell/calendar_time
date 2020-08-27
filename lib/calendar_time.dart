@@ -2,26 +2,27 @@ import 'package:intl/intl.dart';
 
 /// Main class
 class CalendarTime {
-  /// The core DateTime object all operations are run against
-  final DateTime date;
+  DateTime _date;
+
+  // Get the dateTime object used by this CalendarTime
+  DateTime get toDate => _date;
+
+  /// Adds a duration to the current DateTime
+  ///
+  DateTime add(Duration duration) => _date.add(duration);
+
+  /// Subtract a duration from the current DateTime
+  ///
+  DateTime subtract(Duration duration) => _date.subtract(duration);
 
   /// Returns this DateTime value in the local time zone.
   ///
   /// Returns [this] if it is already in the local time zone.
   ///
-  DateTime get dateLocal => date.toLocal();
+  DateTime get dateLocal => _date.toLocal();
 
-  /// Helper method that returns the current
-  ///
-  DateTime now = DateTime.now();
-
-  /// Specify the intl skeleton for the timeformat
-  ///
-  /// Skeletons: These can be specified either as the ICU constant name or as the
-  /// skeleton to which it resolves. The supported set of skeletons is as follows.
-  /// For each skeleton there is a named constructor that can be used to create
-  /// it.  It's also possible to pass the skeleton as a string, but the
-  /// constructor is preferred.
+  /// Specify the format for times when outputting
+  /// Specify it as [DateFormat.<skeleton>]
   ///
   ///      ICU Name                   Skeleton
   ///      --------                   --------
@@ -68,13 +69,8 @@ class CalendarTime {
   ///      SECOND                       s
   DateFormat timeFormat = DateFormat.jm();
 
-  /// Specify the intl skeleton for the day format
-  ///
-  /// Skeletons: These can be specified either as the ICU constant name or as the
-  /// skeleton to which it resolves. The supported set of skeletons is as follows.
-  /// For each skeleton there is a named constructor that can be used to create
-  /// it.  It's also possible to pass the skeleton as a string, but the
-  /// constructor is preferred.
+  /// Specify the format used for the date portion of any formatting
+  /// Use the format [DateFormat.<skeleton>]
   ///
   ///      ICU Name                   Skeleton
   ///      --------                   --------
@@ -121,13 +117,8 @@ class CalendarTime {
   ///      SECOND                       s
   DateFormat dayFormat = DateFormat.EEEE();
 
-  /// Specify the intl skeleton for a full date
-  ///
-  /// Skeletons: These can be specified either as the ICU constant name or as the
-  /// skeleton to which it resolves. The supported set of skeletons is as follows.
-  /// For each skeleton there is a named constructor that can be used to create
-  /// it.  It's also possible to pass the skeleton as a string, but the
-  /// constructor is preferred.
+  /// Specify the format when outputting a full date
+  /// Use the format [DateFormat.<skeleton>]
   ///
   ///      ICU Name                   Skeleton
   ///      --------                   --------
@@ -174,10 +165,14 @@ class CalendarTime {
   ///      SECOND                       s
   DateFormat fullDayFormat = DateFormat.yMMMEd().add_jm();
 
-  CalendarTime(this.date);
+  /// Create a calendar time object by passing in a date
+  /// Not passing in a date will create a CalendarTime at the present date
+  ///
+  CalendarTime([this._date]) {
+    _date ??= DateTime.now();
+  }
 
   /// Convert the date into a human readable representation of a time
-  ///
   /// For example if a datetime is today at 4:30 it will return "Today at 4:30pm"
   ///
   String get toHuman {
@@ -313,7 +308,7 @@ class CalendarTime {
   /// Boolean check to see if the current date is today
   ///
   bool get isToday {
-    if (dateLocal.isAfter(startOfToday()) && dateLocal.isBefore(endOfToday())) {
+    if (dateLocal.isAfter(startOfToday) && dateLocal.isBefore(endOfToday)) {
       return true;
     }
     return false;
@@ -322,8 +317,7 @@ class CalendarTime {
   /// Boolean to check if the current date is tomororw
   ///
   bool get isTomorrow {
-    if (dateLocal.isAfter(endOfToday()) &&
-        dateLocal.isBefore(endOfTomorrow())) {
+    if (dateLocal.isAfter(endOfToday) && dateLocal.isBefore(endOfTomorrow)) {
       return true;
     }
     return false;
@@ -332,8 +326,7 @@ class CalendarTime {
   /// Boolean check to see if the current date is next week
   ///
   bool get isNextWeek {
-    if (dateLocal.isAfter(endOfToday()) &&
-        dateLocal.isBefore(endOfNextWeek())) {
+    if (dateLocal.isAfter(endOfToday) && dateLocal.isBefore(endOfNextWeek)) {
       return true;
     }
     return false;
@@ -342,8 +335,8 @@ class CalendarTime {
   /// Boolean check to see if the current date is yesterday
   ///
   bool get isYesterday {
-    if (dateLocal.isAfter(startOfYesterday()) &&
-        dateLocal.isBefore(startOfToday())) {
+    if (dateLocal.isAfter(startOfYesterday) &&
+        dateLocal.isBefore(startOfToday)) {
       return true;
     }
     return false;
@@ -351,49 +344,57 @@ class CalendarTime {
 
   /// Boolean check to see if the current date is last week
   bool get isLastWeek {
-    if (dateLocal.isAfter(startOfLastWeek()) &&
-        dateLocal.isBefore(startOfYesterday())) {
+    if (dateLocal.isAfter(startOfLastWeek) &&
+        dateLocal.isBefore(startOfYesterday)) {
       return true;
     }
     return false;
   }
 
-  /// Get the [DateTime] at the start of today
+  /// Get the [DateTime] at the start of today.
+  /// note this is based on the current time, not the time passed into the [CalendarTime]
   ///
   /// ie. set the current date to 12:00am
-  DateTime startOfToday() {
-    return DateTime(now.year, now.month, now.day);
-  }
+  DateTime get startOfToday =>
+      DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
+
+  /// Get the [DateTime] at the start of today.
+  /// note this is based on the current time, not the time passed into the [CalendarTime]
+  /// If you want the start of the day of the CalendarTime object use [startOfDay]
+  ///
+  /// ie. set the current date to 12:00am
+  DateTime get startOfDay => DateTime(_date.year, _date.month, _date.day);
 
   /// Get the time at the start of yesterday
+  /// note this is based on the current time, not the time passed into the [CalendarTime]
   ///
-  DateTime startOfYesterday() {
-    return startOfToday().subtract(Duration(days: 1));
-  }
+  DateTime get startOfYesterday => startOfToday.subtract(Duration(days: 1));
 
   /// Get the time at the start of last week
+  /// note this is based on the current time, not the time passed into the [CalendarTime]
   ///
-  DateTime startOfLastWeek() {
-    return startOfToday().subtract(Duration(days: 7));
-  }
+  DateTime get startOfLastWeek => startOfToday.subtract(Duration(days: 7));
 
-  /// Get the time at the end of today
+  /// Get the time at the end of today,
+  /// note this is based on the current time, not the time passed into the [CalendarTime]
+  /// If you want the end of the day of the CalendarTime object, use [endOfDay]
   ///
-  DateTime endOfToday() {
-    return DateTime(now.year, now.month, now.day, 23, 59, 59, 999, 999);
-  }
+  DateTime get endOfToday => DateTime(DateTime.now().year, DateTime.now().month,
+      DateTime.now().day, 23, 59, 59, 999, 999);
+
+  /// Get the time at the end of the day given to the CalendarTime obejct
+  ///
+  DateTime get endOfDay => DateTime(_date.year, _date.month, _date.day, 23, 59, 59, 999, 999);
 
   /// Get the time at the end of tomorrow
+  /// note this is based on the current time, not the time passed into the [CalendarTime]
   ///
-  DateTime endOfTomorrow() {
-    return endOfToday().add(Duration(days: 1));
-  }
+  DateTime get endOfTomorrow => endOfToday.add(Duration(days: 1));
 
   /// Get the time at the end of next week
+  /// note this is based on the current time, not the time passed into the [CalendarTime]
   ///
-  DateTime endOfNextWeek() {
-    return endOfToday().add(Duration(days: 7));
-  }
+  DateTime get endOfNextWeek => endOfToday.add(Duration(days: 7));
 
   /// Generate a CalendarTime object from a string with a custom format
   ///
