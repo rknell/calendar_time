@@ -7,6 +7,11 @@ void main() {
     expect(calendarTime.toHuman.contains('Today'), true);
   });
 
+  test('converts time to human value as a single line', () {
+    final calendarTime = CalendarTime(DateTime(2010, 10, 10));
+    expect(calendarTime.toHuman.contains("\n"), false);
+  });
+
   test('it should format a date', () {
     final calendarTime = CalendarTime(DateTime(2010, 1, 1));
     expect(calendarTime.format('dd/MM/yy'), "01/01/10");

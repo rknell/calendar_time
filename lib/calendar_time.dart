@@ -180,7 +180,7 @@ class CalendarTime {
     final String day = dayFormat.format(dateLocal);
     final String fullDate = DateFormat.yMMMEd().format(dateLocal);
     final String fullTime = DateFormat.jm().format(dateLocal);
-    final String fullDateTime = "$fullDate\n$fullTime";
+    final String fullDateTime = "$fullDate $fullTime";
 
     if (isToday) {
       return 'Today at $time';
