@@ -3,7 +3,7 @@
 * BREAKING CHANGE - Thanks @vs-krasnov
     Removing carriage return in single line output. Should always have been this way.
 
-##v [1.0.1] - 2020/08/27
+## [1.0.1] - 2020/08/27
 
 * Added endOfDay and startOfDay getters
 
