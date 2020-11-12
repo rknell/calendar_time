@@ -17,4 +17,23 @@ void main() {
     CalendarTime.fromString("20/12/20", "d/M/y");
     CalendarTime.fromString("09/08/2020 4:20 PM", "dd/MM/yyyy h:mm a");
   });
+
+  test("it should handle isSameDayAs", () {
+    expect(
+        CalendarTime(DateTime(2010, 01, 01, 15))
+            .isSameDayAs(DateTime(2010, 01, 01, 3)),
+        true);
+    expect(
+        CalendarTime(DateTime(2010, 12, 14, 8))
+            .isSameDayAs(DateTime(2010, 12, 14, 9)),
+        true);
+    expect(
+        CalendarTime(DateTime(2010, 12, 14, 8).toUtc())
+            .isSameDayAs(DateTime(2010, 12, 14, 9)),
+        true);
+    expect(
+        CalendarTime(DateTime(2010, 12, 15, 8))
+            .isSameDayAs(DateTime(2010, 12, 14, 9)),
+        false);
+  });
 }

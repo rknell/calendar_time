@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="625aaba0-c624-42c5-976c-bd727d65f0c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/calendar_time.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/calendar_time.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/calendar_time_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/calendar_time_test.dart" afterDir="false" />
@@ -38,15 +38,22 @@
       <recent name="$PROJECT_DIR$/example" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Dart Test.it should handle isSameDayAs in calendar_time_test.dart">
     <configuration name="it should generate a time from a string in calendar_time_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/test/calendar_time_test.dart" />
       <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
       <option name="testName" value="it should generate a time from a string" />
       <method v="2" />
     </configuration>
+    <configuration name="it should handle isSameDayAs in calendar_time_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/test/calendar_time_test.dart" />
+      <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
+      <option name="testName" value="it should handle isSameDayAs" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Dart Test.it should handle isSameDayAs in calendar_time_test.dart" />
         <item itemvalue="Dart Test.it should generate a time from a string in calendar_time_test.dart" />
       </list>
     </recent_temporary>
@@ -73,25 +80,29 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="604" y="381" key="#com.intellij.fileTypes.FileTypeChooser/-1080.-814.1080.1897/0.23.1792.1097@0.23.1792.1097" timestamp="1597298557653" />
-    <state width="747" height="208" key="GridCell.Tab.0.bottom" timestamp="1597363717576">
-      <screen x="0" y="23" width="1536" height="937" />
+    <state width="875" height="343" key="GridCell.Tab.0.bottom" timestamp="1601607566302">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="875" height="512" key="GridCell.Tab.0.bottom/-1080.-814.1080.1897/0.23.1792.1097@0.23.1792.1097" timestamp="1597299358925" />
     <state width="747" height="208" key="GridCell.Tab.0.bottom/0.23.1536.937@0.23.1536.937" timestamp="1597363717576" />
-    <state width="747" height="208" key="GridCell.Tab.0.center" timestamp="1597363717575">
-      <screen x="0" y="23" width="1536" height="937" />
+    <state width="875" height="343" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1601607566302" />
+    <state width="875" height="343" key="GridCell.Tab.0.center" timestamp="1601607566302">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="875" height="512" key="GridCell.Tab.0.center/-1080.-814.1080.1897/0.23.1792.1097@0.23.1792.1097" timestamp="1597299358924" />
     <state width="747" height="208" key="GridCell.Tab.0.center/0.23.1536.937@0.23.1536.937" timestamp="1597363717575" />
-    <state width="747" height="208" key="GridCell.Tab.0.left" timestamp="1597363717575">
-      <screen x="0" y="23" width="1536" height="937" />
+    <state width="875" height="343" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1601607566302" />
+    <state width="875" height="343" key="GridCell.Tab.0.left" timestamp="1601607566301">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="875" height="512" key="GridCell.Tab.0.left/-1080.-814.1080.1897/0.23.1792.1097@0.23.1792.1097" timestamp="1597299358924" />
     <state width="747" height="208" key="GridCell.Tab.0.left/0.23.1536.937@0.23.1536.937" timestamp="1597363717575" />
-    <state width="747" height="208" key="GridCell.Tab.0.right" timestamp="1597363717575">
-      <screen x="0" y="23" width="1536" height="937" />
+    <state width="875" height="343" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1601607566301" />
+    <state width="875" height="343" key="GridCell.Tab.0.right" timestamp="1601607566302">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="875" height="512" key="GridCell.Tab.0.right/-1080.-814.1080.1897/0.23.1792.1097@0.23.1792.1097" timestamp="1597299358925" />
     <state width="747" height="208" key="GridCell.Tab.0.right/0.23.1536.937@0.23.1536.937" timestamp="1597363717575" />
+    <state width="875" height="343" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1601607566302" />
   </component>
 </project>

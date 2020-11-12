@@ -384,7 +384,8 @@ class CalendarTime {
 
   /// Get the time at the end of the day given to the CalendarTime obejct
   ///
-  DateTime get endOfDay => DateTime(_date.year, _date.month, _date.day, 23, 59, 59, 999, 999);
+  DateTime get endOfDay =>
+      DateTime(_date.year, _date.month, _date.day, 23, 59, 59, 999, 999);
 
   /// Get the time at the end of tomorrow
   /// note this is based on the current time, not the time passed into the [CalendarTime]
@@ -458,5 +459,12 @@ class CalendarTime {
     final format = DateFormat(pattern, locale);
     final dateTime = format.parse(input);
     return CalendarTime(dateTime);
+  }
+
+  bool isSameDayAs(DateTime comparisonDate) {
+    return (_date.toLocal()).toLocal().year ==
+            (comparisonDate.toLocal()).year &&
+        (_date.toLocal()).month == (comparisonDate.toLocal()).month &&
+        (_date.toLocal()).day == (comparisonDate.toLocal()).day;
   }
 }
