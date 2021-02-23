@@ -1,3 +1,7 @@
+## [2.0.0-nullsafety.0]
+
+Migrating to nullsafety
+
 ## [1.1.0] - 2020/11/20
 
 * BREAKING CHANGE - Thanks @vs-krasnov

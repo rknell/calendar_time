@@ -1,13 +1,13 @@
 name: calendar_time
 description: Implementation of MomentJS's calendar time, plus a bunch of other helper methods.
-version: 1.1.0
+version: 2.0.0-nullsafety.0
 homepage: https://github.com/rknell/calendar_time
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.12.0-0 <3.0.0"
 
 dependencies:
-  intl: ^0.16.1
+  intl: ^0.17.0
 
 dev_dependencies:
   test:

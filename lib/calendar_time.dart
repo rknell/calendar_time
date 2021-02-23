@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 /// Main class
 class CalendarTime {
-  DateTime _date;
+  late DateTime _date;
 
   // Get the dateTime object used by this CalendarTime
   DateTime get toDate => _date;
@@ -168,8 +168,8 @@ class CalendarTime {
   /// Create a calendar time object by passing in a date
   /// Not passing in a date will create a CalendarTime at the present date
   ///
-  CalendarTime([this._date]) {
-    _date ??= DateTime.now();
+  CalendarTime([_date]) {
+    this._date = _date ??= DateTime.now();
   }
 
   /// Convert the date into a human readable representation of a time
@@ -455,7 +455,7 @@ class CalendarTime {
   ///      MINUTE_SECOND                ms
   ///      SECOND                       s
   factory CalendarTime.fromString(String input,
-      [String pattern, String locale]) {
+      [String? pattern, String? locale]) {
     final format = DateFormat(pattern, locale);
     final dateTime = format.parse(input);
     return CalendarTime(dateTime);
