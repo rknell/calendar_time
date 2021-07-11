@@ -12,6 +12,14 @@ void main() {
     expect(calendarTime.toHuman.contains("\n"), false);
   });
 
+  test('converts time to human value as an array', () {
+    final now = DateTime.now();
+    final result = CalendarTime(DateTime(now.year, now.month, now.day, 12, 0))
+        .toHumanArray;
+    expect(result[0] == 'Today', true);
+    expect(result[1] == '12:00 PM', true);
+  });
+
   test('it should format a date', () {
     final calendarTime = CalendarTime(DateTime(2010, 1, 1));
     expect(calendarTime.format('dd/MM/yy'), "01/01/10");
