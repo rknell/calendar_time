@@ -305,6 +305,12 @@ class CalendarTime {
     return toHuman.split(" at ").join("\n");
   }
 
+  ///The same as calling [toHuman] except it breaks down the result into array
+  ///[0] is date, [1] is time
+  List<String> get toHumanArray {
+    return toHuman.split(" at ");
+  }
+
   /// Boolean check to see if the current date is today
   ///
   bool get isToday {
