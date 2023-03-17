@@ -375,6 +375,28 @@ class CalendarTime {
   ///
   DateTime get startOfLastWeek => startOfToday.subtract(Duration(days: 7));
 
+  /// Get the time at the start of this week beginning Sunday
+  ///
+  DateTime get startOfThisWeekSunday =>
+      startOfToday.subtract(Duration(days: dateLocal.weekday - 1));
+
+  /// Get the time at the start of this week beginning Monday
+  ///
+  DateTime get startOfThisWeekMonday =>
+      startOfToday.subtract(Duration(days: dateLocal.weekday));
+
+  /// Get the time at the end of this week ending Saturday night / Sunday morning
+  ///
+  DateTime get endOfThisWeekSunday => startOfToday
+      .subtract(Duration(days: dateLocal.weekday - 1))
+      .add(Duration(days: 6));
+
+  /// Get the time at the end of this week ending Sunday night / Monday morning
+  ///
+  DateTime get endOfThisWeekMonday => startOfToday
+      .subtract(Duration(days: dateLocal.weekday))
+      .add(Duration(days: 6));
+
   /// Get the time at the end of today,
   /// note this is based on the current time, not the time passed into the [CalendarTime]
   /// If you want the end of the day of the CalendarTime object, use [endOfDay]

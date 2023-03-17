@@ -1,3 +1,7 @@
+## [2.0.1] - 2021/03/01
+
+* Adding start and end of week getters
+
 ## [2.0.0]
 
 Bumping pre release null safe version to production
