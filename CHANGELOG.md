@@ -1,3 +1,7 @@
+## [2.2.1] - 2021/03/28
+
+* BREAKING: Removing removing some more outdated functions.
+
 ## [2.2.0] - 2021/03/28
 
 * BREAKING: Removing said getters from the last version and changing the API to be more flexible and consistent.
