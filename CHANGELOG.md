@@ -1,3 +1,7 @@
+## [2.2.0] - 2021/03/28
+
+* BREAKING: Removing said getters from the last version and changing the API to be more flexible and consistent.
+
 ## [2.0.1] - 2021/03/01
 
 * Adding start and end of week getters

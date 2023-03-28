@@ -1,5 +1,15 @@
 import 'package:intl/intl.dart';
 
+enum DayOfWeek {
+  sunday,
+  monday,
+  tuesday,
+  wednesday,
+  thursday,
+  friday,
+  saturday,
+}
+
 /// Main class
 class CalendarTime {
   late DateTime _date;
@@ -364,9 +374,9 @@ class CalendarTime {
   DateTime get startOfToday =>
       DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 
-  /// Get the [DateTime] at the start of today.
-  /// note this is based on the current time, not the time passed into the [CalendarTime]
-  /// If you want the start of the day of the CalendarTime object use [startOfDay]
+  /// Get the [DateTime] at the start of the calendar time day
+  /// note this is based on the time time passeed into [CalendarTime]
+  /// If you want the start of today object use [startOfToday]
   ///
   /// ie. set the current date to 12:00am
   DateTime get startOfDay => DateTime(_date.year, _date.month, _date.day);
@@ -381,25 +391,49 @@ class CalendarTime {
   ///
   DateTime get startOfLastWeek => startOfToday.subtract(Duration(days: 7));
 
-  /// Get the time at the start of this week beginning Sunday
+  /// Get the date at the start of the week based on the [weekDayStart]
+  /// this is based on the time passed into CalendarTime.
   ///
-  DateTime get startOfThisWeekSunday =>
-      startOfToday.subtract(Duration(days: dateLocal.weekday - 1));
+  /// To work out the right value to pass in, use DateTime.<weekday> ie DateTime.tuesday
+  /// it defaults to monday
+  DateTime startOfWeek({int weekDayStart = DateTime.monday}) {
+    var difference = dateLocal.weekday - weekDayStart;
+    // if difference is negative, add 7 to make it positive
+    if (difference < 0) {
+      difference += 7;
+    }
+    return startOfDay.subtract(Duration(days: difference));
+  }
 
-  /// Get the time at the start of this week beginning Monday
+  /// Get the date at the end of the week based on the [weekDayStart]
+  /// this is based on the time passed into CalendarTime.
   ///
-  DateTime get startOfThisWeekMonday =>
-      startOfToday.subtract(Duration(days: dateLocal.weekday));
+  /// To work out the right value to pass in, use DateTime.<weekday> ie DateTime.tuesday
+  /// it defaults to monday
+  DateTime endOfWeek({int weekDayStart = DateTime.monday}) {
+    final startOfWeek = this.startOfWeek(weekDayStart: weekDayStart);
+    return CalendarTime(startOfWeek.add(Duration(days: 6))).endOfDay;
+  }
+
+  // /// Get the time at the start of this week beginning Sunday
+  // ///
+  // DateTime get startOfWeekSunday =>
+  //     startOfDay.subtract(Duration(days: dateLocal.weekday - 1));
+  //
+  // /// Get the time at the start of this week beginning Monday
+  // ///
+  // DateTime get startOfWeekMonday =>
+  //     startOfDay.subtract(Duration(days: dateLocal.weekday));
 
   /// Get the time at the end of this week ending Saturday night / Sunday morning
   ///
-  DateTime get endOfThisWeekSunday => startOfToday
+  DateTime get endOfWeekSunday => endOfDay
       .subtract(Duration(days: dateLocal.weekday - 1))
       .add(Duration(days: 6));
 
   /// Get the time at the end of this week ending Sunday night / Monday morning
   ///
-  DateTime get endOfThisWeekMonday => startOfToday
+  DateTime get endOfWeekMonday => endOfDay
       .subtract(Duration(days: dateLocal.weekday))
       .add(Duration(days: 6));
 

@@ -49,4 +49,44 @@ void main() {
             .isSameDayAs(DateTime(2010, 12, 14, 9)),
         false);
   });
+
+  test('start of week', () {
+    expect(
+        CalendarTime(DateTime(2023, 3, 28))
+            .startOfWeek(weekDayStart: DateTime.monday)
+            .toIso8601String(),
+        "2023-03-27T00:00:00.000");
+
+    expect(
+        CalendarTime(DateTime(2023, 3, 28))
+            .startOfWeek(weekDayStart: DateTime.sunday)
+            .toIso8601String(),
+        "2023-03-26T00:00:00.000");
+
+    expect(
+        CalendarTime(DateTime(2023, 3, 28))
+            .startOfWeek(weekDayStart: DateTime.tuesday)
+            .toIso8601String(),
+        "2023-03-28T00:00:00.000");
+  });
+
+  test('end of week', () {
+    expect(
+        CalendarTime(DateTime(2023, 3, 28))
+            .endOfWeek(weekDayStart: DateTime.monday)
+            .toIso8601String(),
+        "2023-04-02T23:59:59.999999");
+
+    expect(
+        CalendarTime(DateTime(2023, 3, 28))
+            .endOfWeek(weekDayStart: DateTime.sunday)
+            .toIso8601String(),
+        "2023-04-01T23:59:59.999999");
+
+    expect(
+        CalendarTime(DateTime(2023, 3, 28))
+            .endOfWeek(weekDayStart: DateTime.tuesday)
+            .toIso8601String(),
+        "2023-04-03T23:59:59.999999");
+  });
 }
