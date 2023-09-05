@@ -4,11 +4,11 @@ version: 2.2.1
 homepage: https://github.com/rknell/calendar_time
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
-  intl: ^0.17.0
+  intl: ^0.18.0
 
 dev_dependencies:
   test:
-  pedantic: ^1.9.2
+  matcher: ^0.12.16
