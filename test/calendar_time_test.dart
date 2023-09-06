@@ -16,8 +16,8 @@ void main() {
     final now = DateTime.now();
     final result = CalendarTime(DateTime(now.year, now.month, now.day, 12, 0))
         .toHumanArray;
-    expect(result[0] == 'Today', true);
-    expect(matchesIgnoringSpaces(result[1], '12:00 PM'), true);
+    expect(result[0], 'Today');
+    expect(result[1], '12:00 PM');
   });
 
   test('it should format a date', () {
@@ -89,13 +89,4 @@ void main() {
             .toIso8601String(),
         "2023-04-03T23:59:59.999999");
   });
-}
-
-String cleanString(String input) {
-  // Replace all whitespace characters (including NNBSP) with nothing
-  return input.replaceAll(RegExp(r'\s+'), '');
-}
-
-bool matchesIgnoringSpaces(String actual, String expected) {
-  return cleanString(actual) == cleanString(expected);
 }

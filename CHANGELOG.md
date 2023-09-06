@@ -1,4 +1,8 @@
-## [2.2.1] - 2021/03/28
+## [2.3.0]
+
+* POTENTIALLY BREAKING: Upgrading to intl 0.18+. Changes in the underlying standard may break code that relies on whitespace. See https://github.com/dart-lang/i18n/issues/637. Thanks @mwcbrent
+
+## [2.2.1]
 
 * BREAKING: Removing removing some more outdated functions.
 
